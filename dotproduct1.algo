@@ -1,0 +1,42 @@
+PROCEDURE dot_product(V1 : ARRAY_OF INTEGER[N] ,V2 : ARRAY_OF INTEGER[N])
+VAR
+    PS:INTEGER;
+BEGIN
+PS:=0;
+FOR i FROM 0 TO N-1 STEP 1  DO
+    PS :=PS+V1[i]*V2[i] 
+END_FOR
+ IF (PS=0) THEN
+        WRITE("The two vectors are orthogonal");
+    ELSE
+        WRITE("The two vectors are not orthogonal");
+    END_IF
+END
+
+ALGORITHM Dot_product
+
+VAR
+M : ARRAY_OF INTEGER[N][N];
+V1,V2 : ARRAY_OF INTEGER[N];
+a,b:INTEGER;
+BEGIN
+    WRITE ("give the size of M");
+    READ (N);
+    FOR i FROM 0 TO N-1 STEP 1  DO
+    FOR j FROM 0 TO N-1 STEP 1  DO
+       READ(M[i][j])
+    END_FOR   
+    END_FOR
+   
+    WRITE("give 2 index");
+    READ(a);
+    READ(b);
+    V1:=M(:,a);
+    V2:=M(:,b);
+    dot_product(V1,V2);
+  
+    END_FOR
+
+
+    
+END
